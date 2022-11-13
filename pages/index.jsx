@@ -23,10 +23,14 @@ export default function Home({posts, sessionUser}){
 
 
   const handleSubmit = async (payload) => {
-    const res = await axios.post('/api/posts', payload)
-    console.log(res.data)
-    setCurrentPosts([...posts, res.data])
-    setDisplayForm(false)
+    if(!session){
+      signIn()
+    } else{
+      const res = await axios.post('/api/posts', payload)
+      console.log(res.data)
+      setCurrentPosts([...posts, res.data])
+      setDisplayForm(false)
+    }
   }
 
   const handleLike = async (postId) => {
