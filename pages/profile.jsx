@@ -7,7 +7,7 @@ import Button from '../components/Button'
 
 export default function Profile({sessionUser, posts, comments}) {
   const { data: session } = useSession()
-  console.log("HELLO", hello)
+  console.log("HELLO")
   console.log("session", session, sessionUser, posts, comments)
   const handleLike = async (postId) => {
     if(!session){
