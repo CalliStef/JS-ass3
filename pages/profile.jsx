@@ -7,7 +7,7 @@ import Button from '../components/Button'
 
 export default function Profile({sessionUser, posts, comments}) {
   const { data: session } = useSession()
-  console.log("HELLO")
+  // console.log("HELLO")
   console.log("session", session, sessionUser, posts, comments)
   const handleLike = async (postId) => {
     if(!session){
@@ -87,7 +87,7 @@ export default function Profile({sessionUser, posts, comments}) {
 
 export async function getServerSideProps(context){
     const session = await unstable_getServerSession(context.req, context.res, authOptions)
-    console.log("session1", session)
+    // console.log("session1", session)
     if(!session){
         // redirect to login page
 
@@ -104,7 +104,7 @@ export async function getServerSideProps(context){
         email: session.user.email 
       }
     })
-    console.log("session2", sessionUser)
+    // console.log("session2", sessionUser)
     const posts = await prisma.post.findMany({
       where: {
         userId: sessionUser.id
@@ -117,7 +117,7 @@ export async function getServerSideProps(context){
         Like: true
       }
     })
-    console.log("session3", posts)
+    // console.log("session3", posts)
     const comments = await prisma.comment.findMany({
       where: {
          userId: sessionUser.id
@@ -129,7 +129,7 @@ export async function getServerSideProps(context){
           user: true
       }
     })
-    console.log("session4", comments)
+    // console.log("session4", comments)
     return{
         props: {
             session,
