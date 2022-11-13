@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useSession,  signIn } from "next-auth/react"
+import { useSession, signIn } from "next-auth/react"
 import { unstable_getServerSession } from "next-auth/next"
 import { authOptions } from "../api/auth/[...nextauth]"
 import Post from '../../components/Post'
@@ -9,7 +9,7 @@ import { prisma } from '../../server/db/client'
 import axios from 'axios'
 
 
-export default function code({post, comments, sessionUser}){
+export default function Code({post, comments, sessionUser}){
     const { data: session } = useSession()
     const [postComments, setPostComments] = useState(comments)
 
