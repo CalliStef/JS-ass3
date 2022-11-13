@@ -8,8 +8,8 @@ import highlight from "../../utils/highlight"
 
 import { twMerge } from "tailwind-merge"
 
-export default function PostSmall({ onLike, onComment, onShare, href, post, user, Image = NextImage, Link = NextLink, className = "" }) {
-
+export default function PostSmall({ onLike, onComment, liked, onShare, href, post, user, Image = NextImage, Link = NextLink, className = "" }) {
+  console.log("liked", liked)
   return (
     <div className={twMerge('lex flex-col overflow-hidden rounded-lg shadow-lg', className)}>
 
@@ -36,12 +36,12 @@ export default function PostSmall({ onLike, onComment, onShare, href, post, user
                   </p>
                   <p className="text-sm text-gray-300">{formatTimeAgo(post.createdAt)}</p>
                 </div>
-                <div className="flex-1 mt-1">
+                {/* <div className="flex-1 mt-1">
                   <p className="text-xl font-semibold text-gray-100">
                     {post.title.substring(0, 50)}
                   </p>
 
-                </div>
+                </div> */}
               </div>
             </div>
             <pre className="mt-4 mx-5 max-h-52 overflow-hidden border-b border-gray-700 whitespace-pre-wrap break-words">
@@ -54,7 +54,7 @@ export default function PostSmall({ onLike, onComment, onShare, href, post, user
         </Link>
       </div>
       <div className="flex flex-col items-center pb-3">
-        <PostActions onComment={onComment} onLike={onLike} onShare={onShare} liked={post.liked} totalComments={post.totalComments} totalLikes={post.totalLikes} />
+        <PostActions onComment={onComment} onLike={onLike} onShare={onShare} liked={liked} totalComments={post.totalComments} totalLikes={post.totalLikes} />
       </div>
 
     </div>

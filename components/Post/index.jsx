@@ -4,6 +4,7 @@ import PostActions from "../PostActions"
 
 import formatTimeAgo from "../../utils/formatTimeAgo"
 import highlight from "../../utils/highlight"
+import { useState, useEffect } from 'react'
 
 import { twMerge } from "tailwind-merge"
 
