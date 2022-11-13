@@ -1,6 +1,7 @@
 import { unstable_getServerSession } from "next-auth/next"
 import { authOptions } from "./api/auth/[...nextauth]"
 import { useSession, signIn, signOut } from "next-auth/react"
+import { prisma } from '../server/db/client'
 import PostSmall from '../components/PostSmall'
 import Comment from '../components/Comment'
 import Button from '../components/Button'
