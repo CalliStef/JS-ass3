@@ -18,6 +18,7 @@ adapter: PrismaAdapter(prisma),
     })
     // ...add more providers here
   ],
+  secret: process.env.NEXTAUTH_URL,
   
 }
 export default NextAuth(authOptions)
